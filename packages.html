@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Cart</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="packages.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="cart-container">
+    <h1>Shopping Cart</h1>
+    
+    <!-- Product Card -->
+    <div class="product-card">
+      <img src="photos/WhatsApp Image 2025-04-24 at 11.04.58 AM.jpeg" alt="">
+      <h3>Datapools</h3>
+      <p class="price">#999,000</p>
+      
+      <!-- Rating Stars -->
+      <div class="rating">
+        <span class="star" data-rating="1">★</span>
+        <span class="star" data-rating="2">★</span>
+        <span class="star" data-rating="3">★</span>
+        <span class="star" data-rating="4">★</span>
+        <span class="star" data-rating="5">★</span>
+      </div>
+      
+      <!-- Like Button -->
+      <button class="like-btn">
+        <i class="far fa-heart"></i>
+      </button>
+      
+      <!-- Add to Cart -->
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <script>
+    // Like Button Toggle
+    document.querySelector('.like-btn').addEventListener('click', function() {
+      this.classList.toggle('liked');
+      const icon = this.querySelector('i');
+      icon.classList.toggle('far');
+      icon.classList.toggle('fas');
+    });
+
+    // Star Rating
+    document.querySelectorAll('.star').forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = star.getAttribute('data-rating');
+        document.querySelectorAll('.star').forEach(s => {
+          s.style.color = s.getAttribute('data-rating') <= rating ? '#ffc107' : '#ccc';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
